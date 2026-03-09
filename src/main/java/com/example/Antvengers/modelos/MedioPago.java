@@ -1,13 +1,9 @@
 package com.example.Antvengers.modelos;
 
-import com.example.Antvengers.modelos.utils.Estados;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,11 +18,7 @@ public class MedioPago {
     private Long id;
     private String nombre;
     private String franquicia;
-    private Estados estado;
-
-    @ManyToOne
-    @JoinColumn(name="fk_usuario", referencedColumnName = "id")
-    private Usuario usuario;
+    private String estado;
 
     // Constructor vacío
     public MedioPago() {
@@ -46,7 +38,7 @@ public class MedioPago {
         return franquicia;
     }
 
-    public Estados getEstado() {
+    public String getEstado() {
         return estado;
     }
 
@@ -65,7 +57,10 @@ public class MedioPago {
         this.franquicia = franquicia;
     }
 
-    public void setEstado(Estados estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 }
+
+
+
