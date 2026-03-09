@@ -1,11 +1,15 @@
 package com.example.Antvengers.modelos;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,6 +30,17 @@ public class Gasto {
     private int nivelNecesidad; //para clasificar gastos por nivel de necesidad, ej: "El 70% de tus gastos son de nivel de necesidad alto"
     private int satisfaccion; //para medir la satisfacción con el gasto, ej: "Gastaste $X en algo que te dio una satisfacción de 8/10"
     private boolean esPlaneado; //para identificar gastos planificados vs impulsivos, en front:puede mostrarse como insight tipo:"El 30% de tus gastos son impulsivos, considera planificar más tus compras"
+
+    @ManyToOne
+    @JoinColumn(name="fk_usuario", referencedColumnName = "id")
+    private Usuario usuario;
+
+    @OneToMany(mappedBy = "categoria")
+    private List<Categoria> categorias;
+
+    @OneToMany(mappedBy = "comercio")
+    private List<Comercio> comercios;
+
     public Gasto() {
     }
     public Integer getId() {
