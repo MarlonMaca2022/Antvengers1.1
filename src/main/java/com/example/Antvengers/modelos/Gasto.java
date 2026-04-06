@@ -27,9 +27,11 @@ public class Gasto {
     private String icono;
     private String emocion; //para analisis de gasto ej:emoción vs valor gastado, en front:frontend puede mostrarse como insight tipo:"Gastaste más cuando reportaste estrés"
     private boolean esRecurrente; //para identificar gastos recurrentes y analizarlos en el tiempo, en front:puede mostrarse como insight tipo:"Tienes un gasto recurrente de $X cada mes"
-    private int nivelNecesidad; //para clasificar gastos por nivel de necesidad, ej: "El 70% de tus gastos son de nivel de necesidad alto"
-    private int satisfaccion; //para medir la satisfacción con el gasto, ej: "Gastaste $X en algo que te dio una satisfacción de 8/10"
+    private Integer nivelNecesidad; //para clasificar gastos por nivel de necesidad, ej: "El 70% de tus gastos son de nivel de necesidad alto"
+    private Integer satisfaccion; //para medir la satisfacción con el gasto, ej: "Gastaste $X en algo que te dio una satisfacción de 8/10"
     private boolean esPlaneado; //para identificar gastos planificados vs impulsivos, en front:puede mostrarse como insight tipo:"El 30% de tus gastos son impulsivos, considera planificar más tus compras"
+    
+   
 
     @ManyToOne
     @JoinColumn(name="fk_usuario", referencedColumnName = "id")
@@ -85,16 +87,16 @@ public class Gasto {
     public void setEsRecurrente(boolean esRecurrente) {
         this.esRecurrente = esRecurrente;
     }
-    public int getNivelNecesidad() {
+    public Integer getNivelNecesidad() {
         return nivelNecesidad;
     }
-    public void setNivelNecesidad(int nivelNecesidad) {
+    public void setNivelNecesidad(Integer nivelNecesidad) {
         this.nivelNecesidad = nivelNecesidad;
     }
-    public int getSatisfaccion() {
+    public Integer getSatisfaccion() {
         return satisfaccion;
     }
-    public void setSatisfaccion(int satisfaccion) {
+    public void setSatisfaccion(Integer satisfaccion) {
         this.satisfaccion = satisfaccion;
     }
     public boolean isEsPlaneado() {
