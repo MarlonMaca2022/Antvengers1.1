@@ -1,11 +1,19 @@
 package com.example.Antvengers.modelos;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import com.example.Antvengers.modelos.utils.Genero;
+import com.example.Antvengers.modelos.utils.TipoDocumento;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,19 +24,44 @@ public class Usuario {
     //id,nombres,tipodoc,documento,edad
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY  )
-
     private Integer id;
+
+    @Column(name= "NombreCompleto", nullable = false, unique = false, length = 50)
     private String nombres;
-    private String tipodoc;
+
+    @Column(name="TipoDocumento", nullable = false, unique = false)
+    @Enumerated(EnumType.STRING)
+    private TipoDocumento tipodoc;
+
+    @Column(name="NumDocumento", nullable = false, unique = true, length = 15)
     private String documento;
+
+    @Column(name="Edad", nullable = true, unique = false)
     private int edad;
-    private String genero;
+
+    @Column(name="Genero", nullable = false, unique = false)
+    @Enumerated(EnumType.STRING)
+    private Genero genero;
+
+    @Column(name="Email", nullable = false, unique = true, length = 20)
     private String correo;
+
+    @Column(name="UserName", nullable = false, unique = true, length = 18)
     private String username;
+
+    @Column(name = "Password", nullable = false, unique = false, length = 20)
     private String password;
+
+    @Column(name ="FechaRegistro", nullable = false, unique = false)
     private LocalDate fechaRegistro;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Gasto> Gastos;
+
+    @OneToMany(mappedBy = "mediospago")
+    private List<MedioPago> MediosPagos;
     
-    public Usuario(Integer id, String nombres, String tipodoc, String documento, int edad, String genero, String correo,
+    public Usuario(Integer id, String nombres, TipoDocumento tipodoc, String documento, int edad, Genero genero, String correo,
             String username, String password, LocalDate fechaRegistro) {
         this.id = id;
         this.nombres = nombres;
@@ -44,10 +77,10 @@ public class Usuario {
 
     public Integer getId() {return id;}
     public String getNombres() {return nombres;}
-    public String getTipodoc() {return tipodoc;}
+    public TipoDocumento getTipodoc() {return tipodoc;}
     public String getDocumento() {return documento;}
     public int getEdad() {return edad;}
-    public String getGenero() {return genero;}
+    public Genero getGenero() {return genero;}
     public String getCorreo() {return correo;}
     public String getUsername() {return username;}
     public String getPassword() {return password;}
@@ -55,10 +88,10 @@ public class Usuario {
 
     public void setId(Integer id) {this.id = id;}
     public void setNombres(String nombres) {this.nombres = nombres;}
-    public void setTipodoc(String tipodoc) {this.tipodoc = tipodoc;}
+    public void setTipodoc(TipoDocumento tipodoc) {this.tipodoc = tipodoc;}
     public void setDocumento(String documento) {this.documento = documento;}
     public void setEdad(int edad) {this.edad = edad;}
-    public void setGenero(String genero) {this.genero = genero;}
+    public void setGenero(Genero genero) {this.genero = genero;}
     public void setCorreo(String correo) {this.correo = correo;}
     public void setUsername(String username) {this.username = username;}
     public void setPassword(String password) {this.password = password;}
