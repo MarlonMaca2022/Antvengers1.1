@@ -3,6 +3,7 @@ package com.example.Antvengers.modelos;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,8 +20,9 @@ public class Gasto {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    
     private Integer id;
+
+    @Column(name="Descripcion", nullable = false, unique = false, length = 100)
     private String descripcion;
     private LocalDate fecha;
     private Double valor;
@@ -43,68 +45,45 @@ public class Gasto {
     @OneToMany(mappedBy = "comercio")
     private List<Comercio> comercios;
 
-    public Gasto() {
-    }
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
-    }
-    public String getDescripcion() {
-        return descripcion;
-    }
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-    public LocalDate getFecha() {
-        return fecha;
-    }
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
-    }
-    public Double getValor() {
-        return valor;
-    }
-    public void setValor(Double valor) {
-        this.valor = valor;
-    }
-    public String getIcono() {
-        return icono;
-    }
-    public void setIcono(String icono) {
-        this.icono = icono;
-    }
+    @OneToMany(mappedBy = "MedioPago")
+    private List<MedioPago> medioPagos;
+
+    public Gasto() {}
+
+    public Integer getId() {return id;}
+    public String getDescripcion() {return descripcion;}
+    public LocalDate getFecha() {return fecha;}
+    public Double getValor() {return valor;}
+    public String getIcono() {return icono;}
+
+
+    public void setId(Integer id) {this.id = id;}
+    public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
+    public void setFecha(LocalDate fecha) {this.fecha = fecha;}
+    public void setValor(Double valor) {this.valor = valor;}
+    public void setIcono(String icono) {this.icono = icono;}
+
+
     public String getEmocion() {
-        return emocion;
-    }
+        return emocion;}
     public void setEmocion(String emocion) {
-        this.emocion = emocion;
-    }
+        this.emocion = emocion;}
     public boolean isEsRecurrente() {
-        return esRecurrente;
-    }
+        return esRecurrente;}
     public void setEsRecurrente(boolean esRecurrente) {
-        this.esRecurrente = esRecurrente;
-    }
+        this.esRecurrente = esRecurrente;}
     public Integer getNivelNecesidad() {
-        return nivelNecesidad;
-    }
+        return nivelNecesidad;}
     public void setNivelNecesidad(Integer nivelNecesidad) {
-        this.nivelNecesidad = nivelNecesidad;
-    }
+        this.nivelNecesidad = nivelNecesidad;}
     public Integer getSatisfaccion() {
-        return satisfaccion;
-    }
+        return satisfaccion;}
     public void setSatisfaccion(Integer satisfaccion) {
-        this.satisfaccion = satisfaccion;
-    }
+        this.satisfaccion = satisfaccion;}
     public boolean isEsPlaneado() {
-        return esPlaneado;
-    }
+        return esPlaneado;}
     public void setEsPlaneado(boolean esPlaneado) {
-        this.esPlaneado = esPlaneado;
-    }
+        this.esPlaneado = esPlaneado;}
 
     
 

@@ -15,7 +15,7 @@ public class GastoServicio {
     @Autowired
     private IGastoRepositorio repositorio;
 
-    public Gasto guardar_usuario(Gasto datosGasto){
+    public Gasto guardar_gasto(Gasto datosGasto){
 
         if(datosGasto.getValor() > 0){
 
