@@ -1,5 +1,6 @@
 package com.example.Antvengers.modelos;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,14 +16,32 @@ public class Comercio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name="Nit", nullable = false, unique = true, length = 15)
     private String nit;
+
+    @Column(name="Nombre", nullable = false, unique = false, length = 50)
     private String nombre;
+
+    @Column(name="Actividad", nullable = false, unique = false, length = 50)
     private String actividad;
+
+    @Column(name="Contacto", nullable = false, unique = false, length = 50)
     private String contacto;
+
+    @Column(name="TipoEmpresa", nullable = false, unique = false, length = 20)
     private String tipoEmpresa;
+
+    @Column(name="NumeroEmpleados", nullable = false, unique = false)
     private Integer numeroEmpleados;
+
+    @Column(name="Sector", nullable = false, unique = false, length = 20)
     private String sector;
+
+    @Column(name="RepresentanteLegal", nullable = false, unique = false, length = 50)
     private String representanteLegal;
+    
+    @Column(name="FrecuenciaDeVisita", nullable = false, unique = false)
     private Integer frecuenciadevisita; 
 
 

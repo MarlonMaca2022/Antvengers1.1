@@ -83,6 +83,4 @@ public class Categoria {
     public void setPresupuesto(Integer presupuesto) {this.presupuesto = presupuesto;}
     public void setFechaActualizacion(LocalDate fechaActualizacion) {this.fechaActualizacion = fechaActualizacion;}
     
-
-
 }

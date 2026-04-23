@@ -33,6 +33,9 @@ public class MedioPago {
     @Enumerated(EnumType.STRING)
     private Estados estado;
 
+    @Column(name = "Descripcion", nullable = true, length = 100)
+    private String descripcion; //para describir el medio de pago, ej: "Tarjeta de crédito Visa con límite de $X", en front:puede mostrarse como insight tipo:"Tu tarjeta de crédito Visa tiene un límite de $X, considera usarla para gastos grandes"
+
     @ManyToOne
     @JoinColumn(name="fk_mediopago", referencedColumnName= "id")
     private Gasto gasto;
@@ -45,12 +48,14 @@ public class MedioPago {
     public String getNombre() {return nombre;}
     public String getFranquicia() {return franquicia;}
     public Estados getEstado() {return estado;}
+    public String getDescripcion() {return descripcion;}
 
     // Setters
     public void setId(Integer id) {this.id = id;}
     public void setNombre(String nombre) {this.nombre = nombre;}
     public void setFranquicia(String franquicia) {this.franquicia = franquicia;}
     public void setEstado(Estados estado) {this.estado = estado;}
+    public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
 }
 
 

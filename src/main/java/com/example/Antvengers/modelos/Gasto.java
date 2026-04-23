@@ -24,13 +24,29 @@ public class Gasto {
 
     @Column(name="Descripcion", nullable = false, unique = false, length = 100)
     private String descripcion;
+
+    @Column(name="Fecha", nullable = false, unique = false)
     private LocalDate fecha;
+
+    @Column(name="Valor", nullable = false, unique = false)
     private Double valor;
+
+    @Column(name="Icono", nullable = true, unique = false, length = 20)
     private String icono;
+
+    @Column(name="Emocion", nullable = true, unique = false, length = 20)
     private String emocion; //para analisis de gasto ej:emoción vs valor gastado, en front:frontend puede mostrarse como insight tipo:"Gastaste más cuando reportaste estrés"
+
+    @Column(name="EsRecurrente", nullable = false, unique = false)
     private boolean esRecurrente; //para identificar gastos recurrentes y analizarlos en el tiempo, en front:puede mostrarse como insight tipo:"Tienes un gasto recurrente de $X cada mes"
+    
+    @Column(name="NivelNecesidad", nullable = true, unique = false)
     private Integer nivelNecesidad; //para clasificar gastos por nivel de necesidad, ej: "El 70% de tus gastos son de nivel de necesidad alto"
+   
+    @Column(name="Satisfaccion", nullable = true, unique = false)
     private Integer satisfaccion; //para medir la satisfacción con el gasto, ej: "Gastaste $X en algo que te dio una satisfacción de 8/10"
+    
+    @Column(name="EsPlaneado", nullable = true, unique = false)
     private boolean esPlaneado; //para identificar gastos planificados vs impulsivos, en front:puede mostrarse como insight tipo:"El 30% de tus gastos son impulsivos, considera planificar más tus compras"
     
    
@@ -55,6 +71,11 @@ public class Gasto {
     public LocalDate getFecha() {return fecha;}
     public Double getValor() {return valor;}
     public String getIcono() {return icono;}
+    public String getEmocion() {return emocion;}
+    public boolean isEsRecurrente() {return esRecurrente;}
+    public Integer getNivelNecesidad() {return nivelNecesidad;}
+    public Integer getSatisfaccion() {return satisfaccion;}
+    public boolean isEsPlaneado() {return esPlaneado;}
 
 
     public void setId(Integer id) {this.id = id;}
@@ -62,32 +83,10 @@ public class Gasto {
     public void setFecha(LocalDate fecha) {this.fecha = fecha;}
     public void setValor(Double valor) {this.valor = valor;}
     public void setIcono(String icono) {this.icono = icono;}
-
-
-    public String getEmocion() {
-        return emocion;}
-    public void setEmocion(String emocion) {
-        this.emocion = emocion;}
-    public boolean isEsRecurrente() {
-        return esRecurrente;}
-    public void setEsRecurrente(boolean esRecurrente) {
-        this.esRecurrente = esRecurrente;}
-    public Integer getNivelNecesidad() {
-        return nivelNecesidad;}
-    public void setNivelNecesidad(Integer nivelNecesidad) {
-        this.nivelNecesidad = nivelNecesidad;}
-    public Integer getSatisfaccion() {
-        return satisfaccion;}
-    public void setSatisfaccion(Integer satisfaccion) {
-        this.satisfaccion = satisfaccion;}
-    public boolean isEsPlaneado() {
-        return esPlaneado;}
-    public void setEsPlaneado(boolean esPlaneado) {
-        this.esPlaneado = esPlaneado;}
-
-    
-
-
-
+    public void setEmocion(String emocion) {this.emocion = emocion;}
+    public void setEsRecurrente(boolean esRecurrente) {this.esRecurrente = esRecurrente;}
+    public void setNivelNecesidad(Integer nivelNecesidad) {this.nivelNecesidad = nivelNecesidad;}
+    public void setSatisfaccion(Integer satisfaccion) {this.satisfaccion = satisfaccion;}
+    public void setEsPlaneado(boolean esPlaneado) {this.esPlaneado = esPlaneado;}
 
 }
