@@ -82,5 +82,7 @@ public class Categoria {
     public void setColor(Colores color) {this.color = color;}
     public void setPresupuesto(Integer presupuesto) {this.presupuesto = presupuesto;}
     public void setFechaActualizacion(LocalDate fechaActualizacion) {this.fechaActualizacion = fechaActualizacion;}
+    public Gasto getGasto() {return gasto;}
+    public void setGasto(Gasto gasto) {this.gasto = gasto;}
     
 }

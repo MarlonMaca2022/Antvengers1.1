@@ -55,13 +55,13 @@ public class Gasto {
     @JoinColumn(name="fk_usuario", referencedColumnName = "id")
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "categoria")
+    @OneToMany(mappedBy = "gasto")
     private List<Categoria> categorias;
 
-    @OneToMany(mappedBy = "comercio")
+    @OneToMany(mappedBy = "gasto")
     private List<Comercio> comercios;
 
-    @OneToMany(mappedBy = "MedioPago")
+    @OneToMany(mappedBy = "gasto")
     private List<MedioPago> medioPagos;
 
     public Gasto() {}
@@ -88,5 +88,15 @@ public class Gasto {
     public void setNivelNecesidad(Integer nivelNecesidad) {this.nivelNecesidad = nivelNecesidad;}
     public void setSatisfaccion(Integer satisfaccion) {this.satisfaccion = satisfaccion;}
     public void setEsPlaneado(boolean esPlaneado) {this.esPlaneado = esPlaneado;}
+
+    public Usuario getUsuario() {return usuario;}
+    public List<Categoria> getCategorias() {return categorias;}
+    public List<Comercio> getComercios() {return comercios;}
+    public List<MedioPago> getMedioPagos() {return medioPagos;}
+
+    public void setUsuario(Usuario usuario) {this.usuario = usuario;}
+    public void setCategorias(List<Categoria> categorias) {this.categorias = categorias;}
+    public void setComercios(List<Comercio> comercios) {this.comercios = comercios;}
+    public void setMedioPagos(List<MedioPago> medioPagos) {this.medioPagos = medioPagos;}
 
 }

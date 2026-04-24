@@ -56,10 +56,7 @@ public class Usuario {
     private LocalDate fechaRegistro;
 
     @OneToMany(mappedBy = "usuario")
-    private List<Gasto> Gastos;
-
-    @OneToMany(mappedBy = "mediospago")
-    private List<MedioPago> MediosPagos;
+    private List<Gasto> gastos;
     
     public Usuario(Integer id, String nombres, TipoDocumento tipodoc, String documento, int edad, Genero genero, String correo,
             String username, String password, LocalDate fechaRegistro) {
@@ -96,5 +93,7 @@ public class Usuario {
     public void setUsername(String username) {this.username = username;}
     public void setPassword(String password) {this.password = password;}
     public void setFechaRegistro(LocalDate fechaRegistro) {this.fechaRegistro = fechaRegistro;}
+    public List<Gasto> getGastos() {return gastos;}
+    public void setGastos(List<Gasto> gastos) {this.gastos = gastos;}
 
 }

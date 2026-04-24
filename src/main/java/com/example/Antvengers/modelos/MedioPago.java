@@ -56,6 +56,8 @@ public class MedioPago {
     public void setFranquicia(String franquicia) {this.franquicia = franquicia;}
     public void setEstado(Estados estado) {this.estado = estado;}
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
+    public Gasto getGasto() {return gasto;}
+    public void setGasto(Gasto gasto) {this.gasto = gasto;}
 }
 
 

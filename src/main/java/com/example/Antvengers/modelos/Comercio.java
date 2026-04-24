@@ -70,7 +70,7 @@ public class Comercio {
     public void setSector(String sector) {this.sector = sector;}
     public void setRepresentanteLegal(String representanteLegal) {this.representanteLegal = representanteLegal;}
     public void setFrecuenciadevisita(Integer frecuenciadevisita) {this.frecuenciadevisita = frecuenciadevisita;}
-
-    
+    public Gasto getGasto() {return gasto;}
+    public void setGasto(Gasto gasto) {this.gasto = gasto;}
 
 }
