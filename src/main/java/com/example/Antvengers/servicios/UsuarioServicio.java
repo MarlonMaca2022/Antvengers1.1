@@ -1,6 +1,7 @@
 package com.example.Antvengers.servicios;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,9 +46,52 @@ public class UsuarioServicio {
     }
 
     //servicio para eliminar
+    public boolean eliminar_usuario(Integer Id){
+
+        Optional<Usuario> usuarioQueBusco=repositorio.findById(Id);
+
+        if(usuarioQueBusco.isEmpty()){
+
+            throw new ResponseStatusException(
+                HttpStatus.BAD_REQUEST,"El usuario no existe"
+            );
+        }
+
+        else{
+            repositorio.deleteById(Id);
+            return true;
+        }
+    }
 
     //servicio para modificar
+    public Usuario modificar_usuario(Integer id, Usuario datosNuevos){
 
-    //servicio para buscar 
+        Optional<Usuario> usuarioQueBusco=repositorio.findById(id);
 
+        if(usuarioQueBusco.isEmpty()){
+            throw new ResponseStatusException(
+                HttpStatus.BAD_REQUEST,"El usuario no existe"+ id
+            );
+        }
+        else{
+            Usuario usuarioQueEncontre =usuarioQueBusco.get();
+            usuarioQueEncontre.setNombres(datosNuevos.getNombres());
+            return repositorio.save(usuarioQueEncontre);
+        }
+    }
+
+    //servicio para buscar
+    public Usuario buscar_usuario_por_id(Integer id){
+
+        Optional<Usuario> usuarioQueBusco=repositorio.findById(id);
+
+        if(usuarioQueBusco.isEmpty()){
+            throw new ResponseStatusException(
+                HttpStatus.BAD_REQUEST,"El usuario no existe"
+            );
+        }
+        else{
+            return usuarioQueBusco.get();
+        }
+    }
 }
