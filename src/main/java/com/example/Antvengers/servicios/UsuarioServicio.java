@@ -74,7 +74,7 @@ public class UsuarioServicio {
             );
         }
         else{
-            Usuario usuarioQueEncontre =usuarioQueBusco.get();
+            Usuario usuarioQueEncontre = usuarioQueBusco.get();
             usuarioQueEncontre.setNombres(datosNuevos.getNombres());
             return repositorio.save(usuarioQueEncontre);
         }
