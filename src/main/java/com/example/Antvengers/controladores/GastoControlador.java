@@ -59,6 +59,4 @@ public class GastoControlador {
             servicio.buscar_gasto_por_id(id)
         );
     }
-
-
 }
