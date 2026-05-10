@@ -31,11 +31,11 @@ public class Categoria {
     @Column(name= "FechaCreacion", nullable = false, unique = false)
     private LocalDate fechaCreacion;
 
-    @Column(name= "Responsable", nullable = false, unique = false, length = 20)
-    private String responsable;
+    @Column(name= "Referencia", nullable = false, unique = false, length = 20)
+    private String referencia;
 
-    @Column(name= "Justificacion", nullable = false, unique = false, length = 100)
-    private String justificacion;
+    @Column(name= "descripcion", nullable = false, unique = false, length = 100)
+    private String descripcion;
 
     @Column(name= "Estado", nullable = false, unique = false, length = 20)
     @Enumerated(EnumType.STRING)
@@ -49,8 +49,8 @@ public class Categoria {
     @Enumerated(EnumType.STRING)
     private Colores color;
 
-    @Column(name= "Presupuesto", nullable = false, unique = false)
-    private Integer presupuesto;
+    @Column(name= "Icono", nullable = true, unique = false, length = 20)
+    private String icono;
 
     @Column(name= "FechaActualizacion", nullable = true, unique = false)
     private LocalDate fechaActualizacion;
@@ -64,23 +64,23 @@ public class Categoria {
     public Integer getId() {return id;}
     public String getNombre() {return nombre;}
     public LocalDate getFechaCreacion() {return fechaCreacion;}
-    public String getResponsable() {return responsable;}
-    public String getJustificacion() {return justificacion;}
+    public String getReferencia() {return referencia;}
+    public String getDescripcion() {return descripcion;}
     public Estados getEstado() {return estado;}
     public Prioridades getPrioridad() {return prioridad;}
     public Colores getColor() {return color;}
-    public Integer getPresupuesto() {return presupuesto;}
+    public String getIcono() {return icono;}
     public LocalDate getFechaActualizacion() {return fechaActualizacion;}
 
     public void setId(Integer id) {this.id = id;}
     public void setNombre(String nombre) {this.nombre = nombre;}
     public void setFechaCreacion(LocalDate fechaCreacion) {this.fechaCreacion = fechaCreacion;}
-    public void setResponsable(String responsable) {this.responsable = responsable;}
-    public void setJustificacion(String justificacion) {this.justificacion = justificacion;}
+    public void setReferencia(String referencia) {this.referencia = referencia;}
+    public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
     public void setEstado(Estados estado) {this.estado = estado;}
     public void setPrioridad(Prioridades prioridad) {this.prioridad = prioridad;}
     public void setColor(Colores color) {this.color = color;}
-    public void setPresupuesto(Integer presupuesto) {this.presupuesto = presupuesto;}
+    public void setIcono(String icono) {this.icono = icono;}
     public void setFechaActualizacion(LocalDate fechaActualizacion) {this.fechaActualizacion = fechaActualizacion;}
     public Gasto getGasto() {return gasto;}
     public void setGasto(Gasto gasto) {this.gasto = gasto;}

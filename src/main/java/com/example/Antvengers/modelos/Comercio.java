@@ -23,8 +23,8 @@ public class Comercio {
     @Column(name="Nombre", nullable = false, unique = false, length = 50)
     private String nombre;
 
-    @Column(name="Actividad", nullable = false, unique = false, length = 50)
-    private String actividad;
+    @Column(name="Ciudad", nullable = false, unique = false, length = 50)
+    private String ciudad;
 
     @Column(name="Contacto", nullable = false, unique = false, length = 50)
     private String contacto;
@@ -52,7 +52,7 @@ public class Comercio {
     public Integer getId() {return id;}
     public String getNit() {return nit;}
     public String getNombre() {return nombre;}
-    public String getActividad() {return actividad;}
+    public String getCiudad() {return ciudad;}
     public String getContacto() {return contacto;}
     public String getTipoEmpresa() {return tipoEmpresa;}
     public Integer getNumeroEmpleados() {return numeroEmpleados;}
@@ -63,7 +63,7 @@ public class Comercio {
     public void setId(Integer id) {this.id = id;}
     public void setNit(String nit) {this.nit = nit;}
     public void setNombre(String nombre) {this.nombre = nombre;}
-    public void setActividad(String actividad) {this.actividad = actividad;}
+    public void setCiudad(String ciudad) {this.ciudad = ciudad;}
     public void setContacto(String contacto) {this.contacto = contacto;}
     public void setTipoEmpresa(String tipoEmpresa) {this.tipoEmpresa = tipoEmpresa;}
     public void setNumeroEmpleados(Integer numeroEmpleados) {this.numeroEmpleados = numeroEmpleados;}

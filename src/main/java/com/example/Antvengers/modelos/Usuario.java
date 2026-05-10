@@ -52,6 +52,9 @@ public class Usuario {
     @Column(name = "Password", nullable = false, unique = false, length = 20)
     private String password;
 
+    @Column(name = "Rol", nullable = false, unique = false, length = 20)
+    private String rol;
+
     @Column(name ="FechaRegistro", nullable = false, unique = false)
     private LocalDate fechaRegistro;
 
@@ -59,7 +62,7 @@ public class Usuario {
     private List<Gasto> gastos;
     
     public Usuario(Integer id, String nombres, TipoDocumento tipodoc, String documento, int edad, Genero genero, String correo,
-            String username, String password, LocalDate fechaRegistro) {
+            String username, String password, String rol, LocalDate fechaRegistro) {
         this.id = id;
         this.nombres = nombres;
         this.tipodoc = tipodoc;
@@ -69,6 +72,7 @@ public class Usuario {
         this.correo = correo;
         this.username = username;
         this.password = password;
+        this.rol = rol;
         this.fechaRegistro = fechaRegistro;
     }
 
@@ -81,6 +85,7 @@ public class Usuario {
     public String getCorreo() {return correo;}
     public String getUsername() {return username;}
     public String getPassword() {return password;}
+    public String getRol() {return rol;}
     public LocalDate getFechaRegistro() {return fechaRegistro;}
 
     public void setId(Integer id) {this.id = id;}
@@ -92,6 +97,7 @@ public class Usuario {
     public void setCorreo(String correo) {this.correo = correo;}
     public void setUsername(String username) {this.username = username;}
     public void setPassword(String password) {this.password = password;}
+    public void setRol(String rol) {this.rol = rol;}
     public void setFechaRegistro(LocalDate fechaRegistro) {this.fechaRegistro = fechaRegistro;}
     public List<Gasto> getGastos() {return gastos;}
     public void setGastos(List<Gasto> gastos) {this.gastos = gastos;}

@@ -29,10 +29,10 @@ public class MetodoPagoServicio {
 
         }
 
-        if(datosMedioPago.getFranquicia() == null || datosMedioPago.getFranquicia().isBlank() || datosMedioPago.getFranquicia().isEmpty()){
+        if(datosMedioPago.getDescripcion() == null || datosMedioPago.getDescripcion().isBlank() || datosMedioPago.getDescripcion().isEmpty()){
 
         throw new ResponseStatusException(
-            HttpStatus.BAD_REQUEST,"El nombre de la franquicia es obligatorio"
+            HttpStatus.BAD_REQUEST,"La descripción del medio de pago es obligatoria"
         );
 
         }
@@ -77,7 +77,8 @@ public class MetodoPagoServicio {
          else{
              MedioPago medioPagoQueEncontre = medioPagoQueBusco.get();
              medioPagoQueEncontre.setNombre(datosNuevos.getNombre());
-             medioPagoQueEncontre.setFranquicia(datosNuevos.getFranquicia());
+             medioPagoQueEncontre.setTipo(datosNuevos.getTipo());
+             medioPagoQueEncontre.setDescripcion(datosNuevos.getDescripcion());
              return repositorio.save(medioPagoQueEncontre);
           }
     }

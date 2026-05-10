@@ -59,8 +59,6 @@ public class UsuarioControlador {
             servicio.buscar_usuario_por_id(id)
         );
     }
-
-
 }
 
 
