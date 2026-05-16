@@ -1,5 +1,6 @@
 package com.example.Antvengers.modelos;
 import java.time.LocalDate;
+import java.util.List;
 
 import com.example.Antvengers.modelos.utils.Colores;
 import com.example.Antvengers.modelos.utils.Estados;
@@ -11,8 +12,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 
@@ -56,9 +56,9 @@ public class Categoria {
     private LocalDate fechaActualizacion;
 
 
-    @ManyToOne
-    @JoinColumn(name="fk_gasto", referencedColumnName = "id")
-    private Gasto gasto;
+    
+    @OneToMany(mappedBy = "categoria")
+    private List<Gasto> gastos;
 
 
     public Integer getId() {return id;}
@@ -82,7 +82,5 @@ public class Categoria {
     public void setColor(Colores color) {this.color = color;}
     public void setIcono(String icono) {this.icono = icono;}
     public void setFechaActualizacion(LocalDate fechaActualizacion) {this.fechaActualizacion = fechaActualizacion;}
-    public Gasto getGasto() {return gasto;}
-    public void setGasto(Gasto gasto) {this.gasto = gasto;}
     
 }

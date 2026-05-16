@@ -4,5 +4,6 @@ public enum TipoDocumento {
 
         Cedula,
         Pasaporte,
-        Extranjeria
+        Extranjeria,
+        TI
 }

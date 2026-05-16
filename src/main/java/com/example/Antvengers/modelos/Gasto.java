@@ -1,7 +1,6 @@
 package com.example.Antvengers.modelos;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,7 +9,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -55,14 +53,18 @@ public class Gasto {
     @JoinColumn(name="fk_usuario", referencedColumnName = "id")
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "gasto")
-    private List<Categoria> categorias;
+    @ManyToOne
+    @JoinColumn(name="fk_categoria", referencedColumnName = "id")
+    private Categoria categoria;
 
-    @OneToMany(mappedBy = "gasto")
-    private List<Comercio> comercios;
+    @ManyToOne
+    @JoinColumn(name="fk_comercio", referencedColumnName = "id")
+    private Comercio comercio;
 
-    @OneToMany(mappedBy = "gasto")
-    private List<MedioPago> medioPagos;
+    @ManyToOne
+    @JoinColumn(name="fk_mediopago", referencedColumnName= "id")
+    private MedioPago mediopago;
+
 
     public Gasto() {}
 
@@ -90,13 +92,13 @@ public class Gasto {
     public void setEsPlaneado(boolean esPlaneado) {this.esPlaneado = esPlaneado;}
 
     public Usuario getUsuario() {return usuario;}
-    public List<Categoria> getCategorias() {return categorias;}
-    public List<Comercio> getComercios() {return comercios;}
-    public List<MedioPago> getMedioPagos() {return medioPagos;}
+    public Categoria getCategoria() {return categoria;}
+    public Comercio getComercio() {return comercio;}
+    public MedioPago getMedioPago() {return mediopago;}
 
     public void setUsuario(Usuario usuario) {this.usuario = usuario;}
-    public void setCategorias(List<Categoria> categorias) {this.categorias = categorias;}
-    public void setComercios(List<Comercio> comercios) {this.comercios = comercios;}
-    public void setMedioPagos(List<MedioPago> medioPagos) {this.medioPagos = medioPagos;}
+    public void setCategoria(Categoria categoria) {this.categoria = categoria;}
+    public void setComercio(Comercio comercio) {this.comercio = comercio;}
+    public void setMedioPago(MedioPago mediopago) {this.mediopago = mediopago;}
 
 }

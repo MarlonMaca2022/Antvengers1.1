@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.example.Antvengers.modelos.utils.Genero;
 import com.example.Antvengers.modelos.utils.TipoDocumento;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -58,6 +59,7 @@ public class Usuario {
     @Column(name ="FechaRegistro", nullable = false, unique = false)
     private LocalDate fechaRegistro;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<Gasto> gastos;
     
@@ -74,6 +76,9 @@ public class Usuario {
         this.password = password;
         this.rol = rol;
         this.fechaRegistro = fechaRegistro;
+    }
+
+    public Usuario() {
     }
 
     public Integer getId() {return id;}

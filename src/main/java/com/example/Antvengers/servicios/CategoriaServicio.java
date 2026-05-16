@@ -66,6 +66,12 @@ public class CategoriaServicio {
         else{
             Categoria categoriaExistente = categoriaQueBusco.get();
             categoriaExistente.setNombre(datosCategoria.getNombre());
+            categoriaExistente.setReferencia(datosCategoria.getReferencia());
+            categoriaExistente.setEstado(datosCategoria.getEstado());
+            categoriaExistente.setPrioridad(datosCategoria.getPrioridad());
+            categoriaExistente.setColor(datosCategoria.getColor());
+            categoriaExistente.setIcono(datosCategoria.getIcono());
+            categoriaExistente.setDescripcion(datosCategoria.getDescripcion());
             return repositorio.save(categoriaExistente);
         }
 

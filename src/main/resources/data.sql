@@ -2,44 +2,44 @@
 -- Este archivo se ejecuta automáticamente al iniciar la aplicación
 
 -- Insertar Usuarios
-INSERT INTO usuarios (nombre_completo, tipo_documento, documento, edad, genero, email, username, contrasena, rol, fecha_registro) 
+INSERT INTO USUARIOS (nombre_completo, tipo_documento, num_documento, edad, genero, email, user_name, password, rol, fecha_registro) 
 VALUES 
-('Marlon Hoyos', 'CC', '1026141762', 30, 'Masculino','marlon@example.com','marhoy90','pass123','admin', CURRENT_DATE),
-('María García', 'CC', '0987654321', 28, 'Femenino','maria@example.com','maria_garcia','pass123','user', CURRENT_DATE),
-('Carlos López', 'CC', '1122334455', 35, 'Masculino','carlos@example.com','carloslopez','pass123','user', CURRENT_DATE);
+('Marlon Hoyos', 'Cedula', '1026141762', 30, 'Masculino','marlon@example.com','marhoy90','pass123','admin', CURRENT_DATE),
+('María García', 'Cedula', '0987654321', 28, 'Femenino','maria@example.com','maria_garcia','pass123','user', CURRENT_DATE),
+('Carlos López', 'Cedula', '1122334455', 35, 'Masculino','carlos@example.com','carloslopez','pass123','user', CURRENT_DATE);
 
 
 -- Insertar Categorías
-INSERT INTO categorias (nombre, descripcion) 
+INSERT INTO CATEGORIAS (fecha_creacion, referencia, nombre, descripcion, estado, prioridad, color, icono, fecha_actualizacion) 
 VALUES 
-(CURRENT_DATE,'CAT-001','Gastos en comida y bebidas','Activo','Alta','Alimentación','verde', 'bi-cup-hot',CURRENT_DATE),
-(CURRENT_DATE,'CAT-002','Gastos en tecnología','Activo','Alta','Tecnología','azul', 'bi-pc-display',CURRENT_DATE),
-(CURRENT_DATE,'CAT-003','Gastos en hogar','Activo','Media','Hogar','naranja', 'bi-house',CURRENT_DATE),
-(CURRENT_DATE,'CAT-004','Gastos en salud','Activo','Alta','Salud','rojo', 'bi-heart-pulse',CURRENT_DATE),
-(CURRENT_DATE,'CAT-005','Gastos en transporte','Activo','Alta','Transporte','gris', 'bi bus',CURRENT_DATE),
-(CURRENT_DATE,'CAT-006','Gastos en entretenimiento','Activo','Media','Entretenimiento','morado', 'bi-gamepad',CURRENT_DATE);
+(CURRENT_DATE,'CAT-001','Alimentación','Gastos en comida y bebidas','Activo','Alta','Verde', 'bi-cup-hot',CURRENT_DATE),
+(CURRENT_DATE,'CAT-002','Tecnología','Gastos en tecnología','Activo','Alta','Azul', 'bi-pc-display',CURRENT_DATE),
+(CURRENT_DATE,'CAT-003','Hogar','Gastos en hogar','Activo','Media','Naranja', 'bi-house',CURRENT_DATE),
+(CURRENT_DATE,'CAT-004','Salud','Gastos en salud','Activo','Alta','Rojo', 'bi-heart-pulse',CURRENT_DATE),
+(CURRENT_DATE,'CAT-005','Transporte','Gastos en transporte','Activo','Alta','Cian', 'bi-bus',CURRENT_DATE),
+(CURRENT_DATE,'CAT-006','Entretenimiento','Gastos en entretenimiento','Activo','Media','Morado', 'bi-gamepad',CURRENT_DATE);
 
 
 -- Insertar Medios de Pago
-INSERT INTO medios_pago (nombre, descripcion) 
+INSERT INTO MEDIO_PAGO (nombre, tipo, estado, descripcion) 
 VALUES 
-('Efectivo', 'Pago en efectivo'),
-('Tarjeta Débito', 'Tarjeta de débito'),
-('Tarjeta Crédito', 'Tarjeta de crédito'),
-('Transferencia', 'Transferencia bancaria');
+('Efectivo', 'Efectivo', 'Activo', 'Pago en efectivo'),
+('Tarjeta Débito', 'Débito', 'Activo', 'Tarjeta de débito'),
+('Tarjeta Crédito', 'Crédito', 'Activo', 'Tarjeta de crédito'),
+('Transferencia', 'Transferencia', 'Activo', 'Transferencia bancaria');
 
 -- Insertar Comercios
-INSERT INTO comercios (nombre, telefono, email, ubicacion) 
+INSERT INTO COMERCIOS (nit, nombre, ciudad, contacto, tipo_empresa, numero_empleados, sector, representante_legal, frecuencia_de_visita) 
 VALUES 
-('Supermercado XYZ', '3001234567', 'info@supermercado.com', 'Calle 10 #5-50'),
-('Farmacia Central', '3007654321', 'farmacia@central.com', 'Carrera 7 #8-30'),
-('Restaurante Delicia', '3009876543', 'contacto@delicia.com', 'Avenida Principal #100');
+('900123456', 'Supermercado XYZ', 'Bogotá', 'Juan Pérez', 'Retail', 50, 'Alimentos', 'Juan Carlos Mendez', 15),
+('900654321', 'Farmacia Central', 'Bogotá', 'María López', 'Farmacias', 20, 'Salud', 'María Rodriguez', 10),
+('900789123', 'Restaurante Delicia', 'Bogotá', 'Carlos Ruiz', 'Alimentos', 25, 'Restaurante', 'Carlos Gonzalez', 8);
 
--- Insertar Gastos de ejemplo
-INSERT INTO gastos (usuario_id, categoria_id, medio_pago_id, comercio_id, monto, fecha, descripcion) 
+-- Insertar Gastos
+INSERT INTO GASTOS (fk_usuario, descripcion, fecha, valor, icono, emocion, es_recurrente, nivel_necesidad, satisfaccion, es_planeado) 
 VALUES 
-(1, 1, 1, 1, 50000.00, CURRENT_DATE, 'Compra de alimentos'),
-(1, 2, 2, 2, 15000.00, CURRENT_DATE, 'Pasaje transporte'),
-(2, 3, 3, 3, 80000.00, CURRENT_DATE, 'Cena en restaurante'),
-(2, 4, 1, 1, 120000.00, CURRENT_DATE, 'Servicios del mes'),
-(3, 5, 2, 2, 35000.00, CURRENT_DATE, 'Medicamentos');
+(1, 'Compra de alimentos', CURRENT_DATE, 50000.00, 'bi-basket', 'Normal', false, 3, 8, true),
+(1, 'Pasaje transporte', CURRENT_DATE, 15000.00, 'bi-bus', 'Normal', true, 3, 7, true),
+(2, 'Cena en restaurante', CURRENT_DATE, 80000.00, 'bi-cup-hot', 'Feliz', false, 2, 9, false),
+(2, 'Servicios del mes', CURRENT_DATE, 120000.00, 'bi-lightbulb', 'Normal', true, 3, 6, true),
+(3, 'Medicamentos', CURRENT_DATE, 35000.00, 'bi-capsule', 'Preocupado', false, 3, 5, true);
