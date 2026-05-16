@@ -38,7 +38,7 @@ public class Usuario {
     private String documento;
 
     @Column(name="Edad", nullable = true, unique = false)
-    private int edad;
+    private Integer edad;
 
     @Column(name="Genero", nullable = false, unique = false)
     @Enumerated(EnumType.STRING)
@@ -63,7 +63,7 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private List<Gasto> gastos;
     
-    public Usuario(Integer id, String nombres, TipoDocumento tipodoc, String documento, int edad, Genero genero, String correo,
+    public Usuario(Integer id, String nombres, TipoDocumento tipodoc, String documento, Integer edad, Genero genero, String correo,
             String username, String password, String rol, LocalDate fechaRegistro) {
         this.id = id;
         this.nombres = nombres;
@@ -85,7 +85,7 @@ public class Usuario {
     public String getNombres() {return nombres;}
     public TipoDocumento getTipodoc() {return tipodoc;}
     public String getDocumento() {return documento;}
-    public int getEdad() {return edad;}
+    public Integer getEdad() {return edad;}
     public Genero getGenero() {return genero;}
     public String getCorreo() {return correo;}
     public String getUsername() {return username;}
@@ -97,7 +97,7 @@ public class Usuario {
     public void setNombres(String nombres) {this.nombres = nombres;}
     public void setTipodoc(TipoDocumento tipodoc) {this.tipodoc = tipodoc;}
     public void setDocumento(String documento) {this.documento = documento;}
-    public void setEdad(int edad) {this.edad = edad;}
+    public void setEdad(Integer edad) {this.edad = edad;}
     public void setGenero(Genero genero) {this.genero = genero;}
     public void setCorreo(String correo) {this.correo = correo;}
     public void setUsername(String username) {this.username = username;}

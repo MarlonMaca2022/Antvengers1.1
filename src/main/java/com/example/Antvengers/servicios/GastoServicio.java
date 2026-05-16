@@ -18,7 +18,7 @@ public class GastoServicio {
 
     public Gasto guardar_gasto(Gasto datosGasto){
 
-        if(datosGasto.getValor() > 0){
+        if(datosGasto.getValor() <= 0){
             throw new ResponseStatusException(
             HttpStatus.BAD_REQUEST,"El valor del gasto debe ser mayor a 0 "
             );

@@ -36,10 +36,10 @@ VALUES
 ('900789123', 'Restaurante Delicia', 'Bogotá', 'Carlos Ruiz', 'Alimentos', 25, 'Restaurante', 'Carlos Gonzalez', 8);
 
 -- Insertar Gastos
-INSERT INTO GASTOS (fk_usuario, descripcion, fecha, valor, icono, emocion, es_recurrente, nivel_necesidad, satisfaccion, es_planeado) 
+INSERT INTO GASTOS (fk_usuario, descripcion, fecha, valor, emocion, es_recurrente, nivel_necesidad, satisfaccion, es_planeado) 
 VALUES 
-(1, 'Compra de alimentos', CURRENT_DATE, 50000.00, 'bi-basket', 'Normal', false, 3, 8, true),
-(1, 'Pasaje transporte', CURRENT_DATE, 15000.00, 'bi-bus', 'Normal', true, 3, 7, true),
-(2, 'Cena en restaurante', CURRENT_DATE, 80000.00, 'bi-cup-hot', 'Feliz', false, 2, 9, false),
-(2, 'Servicios del mes', CURRENT_DATE, 120000.00, 'bi-lightbulb', 'Normal', true, 3, 6, true),
-(3, 'Medicamentos', CURRENT_DATE, 35000.00, 'bi-capsule', 'Preocupado', false, 3, 5, true);
+(1, 'Compra de alimentos', CURRENT_DATE, 50000.00, 'Normal', false, 3, 8, true),
+(1, 'Pasaje transporte', CURRENT_DATE, 15000.00, 'Estresado', true, 3, 7, true),
+(2, 'Cena en restaurante', CURRENT_DATE, 80000.00, 'Feliz', false, 2, 9, false),
+(2, 'Servicios del mes', CURRENT_DATE, 120000.00, 'Normal', true, 3, 6, true),
+(3, 'Medicamentos', CURRENT_DATE, 35000.00, 'Preocupado', false, 3, 5, true);

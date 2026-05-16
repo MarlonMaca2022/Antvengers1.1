@@ -56,6 +56,7 @@ public class Categoria {
     private LocalDate fechaActualizacion;
 
 
+    public Categoria() {}
     
     @OneToMany(mappedBy = "categoria")
     private List<Gasto> gastos;
