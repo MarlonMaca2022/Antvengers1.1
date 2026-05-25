@@ -32,9 +32,6 @@ public class Gasto {
     @Column(name="Valor", nullable = false, unique = false)
     private Double valor;
 
-    //@Column(name="Icono", nullable = true, unique = false, length = 20)
-    // private String icono;
-
     @Column(name="Emocion", nullable = true, unique = false, length = 20)
     private String emocion; //para analisis de gasto ej:emoción vs valor gastado, en front:frontend puede mostrarse como insight tipo:"Gastaste más cuando reportaste estrés"
 
@@ -50,7 +47,8 @@ public class Gasto {
     @Column(name="EsPlaneado", nullable = true, unique = false)
     private boolean esPlaneado; //para identificar gastos planificados vs impulsivos, en front:puede mostrarse como insight tipo:"El 30% de tus gastos son impulsivos, considera planificar más tus compras"
     
-   
+    //@Column(name="Icono", nullable = true, unique = false, length = 20)
+    // private String icono;
 
     @ManyToOne
     @JoinColumn(name="fk_usuario", referencedColumnName = "id")
