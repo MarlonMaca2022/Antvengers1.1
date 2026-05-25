@@ -18,10 +18,9 @@ public class GastoServicio {
 
     public Gasto guardar_gasto(Gasto datosGasto){
 
-        if(datosGasto.getValor() > 0){
-
+        if(datosGasto.getValor() <= 0){
             throw new ResponseStatusException(
-                HttpStatus.BAD_REQUEST,"El valor del gasto debe ser mayor a 0 "
+            HttpStatus.BAD_REQUEST,"El valor del gasto debe ser mayor a 0 "
             );
         }
 
@@ -31,6 +30,7 @@ public class GastoServicio {
     public List<Gasto> listar_gasto(){
         return repositorio.findAll();
     }
+
     //servicio para eliminar un gasto
     public boolean eliminar_gasto(Integer Id){
 
@@ -46,10 +46,6 @@ public class GastoServicio {
             repositorio.deleteById(Id);
             return true;
         }
-        //buscar al usuario que quiero eliminar
-
-        //
-        
     }
 
     //servicio para modificar un gasto en bd
@@ -83,11 +79,4 @@ public class GastoServicio {
             return gastoBuscado.get();
         }
     }
-
-    //servicio para guardar un gasto
-    //servicio para listar los gastos
-    
-    //servicio para actualizar un gasto
-   
-
 }

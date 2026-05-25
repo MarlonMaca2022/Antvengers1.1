@@ -1,7 +1,8 @@
 package com.example.Antvengers.modelos;
 
 import java.time.LocalDate;
-import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,7 +11,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,14 +25,12 @@ public class Gasto {
     @Column(name="Descripcion", nullable = false, unique = false, length = 100)
     private String descripcion;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name="Fecha", nullable = false, unique = false)
     private LocalDate fecha;
 
     @Column(name="Valor", nullable = false, unique = false)
     private Double valor;
-
-    @Column(name="Icono", nullable = true, unique = false, length = 20)
-    private String icono;
 
     @Column(name="Emocion", nullable = true, unique = false, length = 20)
     private String emocion; //para analisis de gasto ej:emoción vs valor gastado, en front:frontend puede mostrarse como insight tipo:"Gastaste más cuando reportaste estrés"
@@ -49,20 +47,25 @@ public class Gasto {
     @Column(name="EsPlaneado", nullable = true, unique = false)
     private boolean esPlaneado; //para identificar gastos planificados vs impulsivos, en front:puede mostrarse como insight tipo:"El 30% de tus gastos son impulsivos, considera planificar más tus compras"
     
-   
+    //@Column(name="Icono", nullable = true, unique = false, length = 20)
+    // private String icono;
 
     @ManyToOne
     @JoinColumn(name="fk_usuario", referencedColumnName = "id")
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "gasto")
-    private List<Categoria> categorias;
+    @ManyToOne
+    @JoinColumn(name="fk_categoria", referencedColumnName = "id")
+    private Categoria categoria;
 
-    @OneToMany(mappedBy = "gasto")
-    private List<Comercio> comercios;
+    @ManyToOne
+    @JoinColumn(name="fk_comercio", referencedColumnName = "id")
+    private Comercio comercio;
 
-    @OneToMany(mappedBy = "gasto")
-    private List<MedioPago> medioPagos;
+    @ManyToOne
+    @JoinColumn(name="fk_mediopago", referencedColumnName= "id")
+    private MedioPago mediopago;
+
 
     public Gasto() {}
 
@@ -70,7 +73,7 @@ public class Gasto {
     public String getDescripcion() {return descripcion;}
     public LocalDate getFecha() {return fecha;}
     public Double getValor() {return valor;}
-    public String getIcono() {return icono;}
+    // public String getIcono() {return icono;}
     public String getEmocion() {return emocion;}
     public boolean isEsRecurrente() {return esRecurrente;}
     public Integer getNivelNecesidad() {return nivelNecesidad;}
@@ -82,7 +85,7 @@ public class Gasto {
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
     public void setFecha(LocalDate fecha) {this.fecha = fecha;}
     public void setValor(Double valor) {this.valor = valor;}
-    public void setIcono(String icono) {this.icono = icono;}
+    // public void setIcono(String icono) {this.icono = icono;}
     public void setEmocion(String emocion) {this.emocion = emocion;}
     public void setEsRecurrente(boolean esRecurrente) {this.esRecurrente = esRecurrente;}
     public void setNivelNecesidad(Integer nivelNecesidad) {this.nivelNecesidad = nivelNecesidad;}
@@ -90,13 +93,13 @@ public class Gasto {
     public void setEsPlaneado(boolean esPlaneado) {this.esPlaneado = esPlaneado;}
 
     public Usuario getUsuario() {return usuario;}
-    public List<Categoria> getCategorias() {return categorias;}
-    public List<Comercio> getComercios() {return comercios;}
-    public List<MedioPago> getMedioPagos() {return medioPagos;}
+    public Categoria getCategoria() {return categoria;}
+    public Comercio getComercio() {return comercio;}
+    public MedioPago getMedioPago() {return mediopago;}
 
     public void setUsuario(Usuario usuario) {this.usuario = usuario;}
-    public void setCategorias(List<Categoria> categorias) {this.categorias = categorias;}
-    public void setComercios(List<Comercio> comercios) {this.comercios = comercios;}
-    public void setMedioPagos(List<MedioPago> medioPagos) {this.medioPagos = medioPagos;}
+    public void setCategoria(Categoria categoria) {this.categoria = categoria;}
+    public void setComercio(Comercio comercio) {this.comercio = comercio;}
+    public void setMedioPago(MedioPago mediopago) {this.mediopago = mediopago;}
 
 }

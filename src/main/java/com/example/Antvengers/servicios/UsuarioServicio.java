@@ -74,8 +74,15 @@ public class UsuarioServicio {
             );
         }
         else{
-            Usuario usuarioQueEncontre =usuarioQueBusco.get();
+            Usuario usuarioQueEncontre = usuarioQueBusco.get();
             usuarioQueEncontre.setNombres(datosNuevos.getNombres());
+            usuarioQueEncontre.setDocumento(datosNuevos.getDocumento());
+            usuarioQueEncontre.setCorreo(datosNuevos.getCorreo());
+            usuarioQueEncontre.setGenero(datosNuevos.getGenero());
+            usuarioQueEncontre.setTipodoc(datosNuevos.getTipodoc());
+            usuarioQueEncontre.setEdad(datosNuevos.getEdad());
+            usuarioQueEncontre.setRol(datosNuevos.getRol());
+            usuarioQueEncontre.setPassword(datosNuevos.getPassword());
             return repositorio.save(usuarioQueEncontre);
         }
     }

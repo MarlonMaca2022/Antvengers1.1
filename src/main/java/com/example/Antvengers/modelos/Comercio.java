@@ -1,11 +1,12 @@
 package com.example.Antvengers.modelos;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 
@@ -23,8 +24,8 @@ public class Comercio {
     @Column(name="Nombre", nullable = false, unique = false, length = 50)
     private String nombre;
 
-    @Column(name="Actividad", nullable = false, unique = false, length = 50)
-    private String actividad;
+    @Column(name="Ciudad", nullable = false, unique = false, length = 50)
+    private String ciudad;
 
     @Column(name="Contacto", nullable = false, unique = false, length = 50)
     private String contacto;
@@ -45,14 +46,13 @@ public class Comercio {
     private Integer frecuenciadevisita; 
 
 
-    @ManyToOne
-    @JoinColumn(name="fk_gasto", referencedColumnName = "id")
-    private Gasto gasto;
+    @OneToMany(mappedBy = "comercio")
+    private List<Gasto> gastos;
 
     public Integer getId() {return id;}
     public String getNit() {return nit;}
     public String getNombre() {return nombre;}
-    public String getActividad() {return actividad;}
+    public String getCiudad() {return ciudad;}
     public String getContacto() {return contacto;}
     public String getTipoEmpresa() {return tipoEmpresa;}
     public Integer getNumeroEmpleados() {return numeroEmpleados;}
@@ -63,14 +63,13 @@ public class Comercio {
     public void setId(Integer id) {this.id = id;}
     public void setNit(String nit) {this.nit = nit;}
     public void setNombre(String nombre) {this.nombre = nombre;}
-    public void setActividad(String actividad) {this.actividad = actividad;}
+    public void setCiudad(String ciudad) {this.ciudad = ciudad;}
     public void setContacto(String contacto) {this.contacto = contacto;}
     public void setTipoEmpresa(String tipoEmpresa) {this.tipoEmpresa = tipoEmpresa;}
     public void setNumeroEmpleados(Integer numeroEmpleados) {this.numeroEmpleados = numeroEmpleados;}
     public void setSector(String sector) {this.sector = sector;}
     public void setRepresentanteLegal(String representanteLegal) {this.representanteLegal = representanteLegal;}
     public void setFrecuenciadevisita(Integer frecuenciadevisita) {this.frecuenciadevisita = frecuenciadevisita;}
-    public Gasto getGasto() {return gasto;}
-    public void setGasto(Gasto gasto) {this.gasto = gasto;}
+
 
 }
